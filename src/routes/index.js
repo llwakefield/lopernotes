@@ -12,14 +12,12 @@ apiRouter.get('/listnotes', async (req, res, next) => {
   }
 });
 
+// eslint-disable-next-line consistent-return
 apiRouter.post('/createnote', async (req, res, next) => {
   try {
-    const noteText = req.body;
+    const { noteText } = req.body;
     const note = await createNote(noteText);
-    res.send({
-      success: true,
-      note,
-    });
+    res.send(note);
   } catch (error) {
     next(error);
   }

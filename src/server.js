@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 const { client } = require('./db/client');
 const apiRouter = require('./routes');
 
@@ -8,6 +9,8 @@ const PORT = 3001;
 
 server.use(morgan('dev'));
 
+server.use(bodyParser.json());
+
 server.use('/api', apiRouter);
 
 server.listen(PORT, async () => {
@@ -15,8 +18,8 @@ server.listen(PORT, async () => {
 
   try {
     await client.connect();
-    console.log('Database is open for business!');
+    console.log('Database connected!');
   } catch (error) {
-    console.error('Database is closed for repairs! :(\n', error);
+    console.error('Database connection error', error);
   }
 });

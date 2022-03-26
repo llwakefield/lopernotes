@@ -22,7 +22,7 @@ const ViewNotes = () => {
             </h2>
             
               {notes?.map((note) => (
-                  <Card className='m-2' style={{'color': 'black', 'width': '18rem'}}>
+                  <Card key={note.id} className='m-2' style={{'color': 'black', 'width': '18rem'}}>
                       <Card.Body>
                           <Card.Title>
                             Note {note.id}:

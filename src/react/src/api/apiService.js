@@ -6,14 +6,7 @@ const get = async () => {
 }
 
 const create = async (noteText) => {
-    const config = {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(noteText),
-    }
-    const { data } = await axios.post('/api/createnote', config);
+    const { data } = await axios.post('/api/createnote', { noteText });
     return data;
 }
 
