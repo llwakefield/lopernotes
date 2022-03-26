@@ -1,13 +1,11 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+// import { Link } from 'react-router-dom';
 
 const Home = () => {
 
     return (
         <>
-            <h2 className='mb-5'>
-                Loper Notes
-            </h2>
             <Button variant={'primary'} className='m-2'>
                 Create Note
             </Button>
